@@ -1,13 +1,31 @@
-const express = require('express'); // Include ExpressJS
-const app = express(); // Create an ExpressJS app
-const bodyParser = require('body-parser'); // middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+const express = require('express');
+const exphbs = require('express-handlebars');
+const path = require('path');
+const app = express();
+
+const hbs = exphbs.create({});
+const PORT = process.env.PORT || 3001;
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 
-app.get('/', sessionChecker, (req, res) => {
-    res.redirect('/login');
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, 'public')));
+
+var sessionChecker = (req, res, next) => {
+  if (req.session.user && req.cookies.user_sid) {
+  
+      res.redirect('/dashboard');
+  } else {
+      next();
+  }    
+};
+
+app.get('/', function (req,res){
+  res.render('homepage');
 });
-
 
 // route for user signup
 app.route('/signup')
@@ -54,6 +72,7 @@ app.route('/login')
         });
     });
 
+
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
@@ -84,7 +103,6 @@ app.get('/logout', (req, res) => {
 });
 
 
-// start the express server
-app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
 
+  app.listen(PORT, () => console.log('Now listening'));
 
