@@ -1,50 +1,12 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
-// GET all posts to display on the homepage
-router.get("/", (req, res) => {
-  console.log(req.session);
+// GET all of a user's posts
+router.get("/", withAuth, (req, res) => {
   Post.findAll({
-    attributes: ["id", "title", "post_text", "created_at"],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { posts, loggedIn: req.session.loggedIn });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// GET to send a user to the homepage if they are logged in. If they aren't logged in, then they are taken to the login page
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-  res.render("login");
-});
-
-// GET one post to display on the homepage
-router.get("/post/:id", (req, res) => {
-  Post.findOne({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
     },
     attributes: ["id", "title", "post_text", "created_at"],
     include: [
@@ -63,20 +25,47 @@ router.get("/post/:id", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No post found!" });
-        return;
-      }
-
-      const post = dbPostData.get({ plain: true });
-
-      res.render("single-post", {
-        post,
-        loggedIn: req.session.loggedIn,
-      });
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("dashboard", { posts, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET to allow the user to edit their existing posts
+router.get("/edit/:id", withAuth, (req, res) => {
+  Post.findByPk(req.params.id, {
+    attributes: ["id", "title", "post_text", "created_at"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      if (dbPostData) {
+        const post = dbPostData.get({ plain: true });
+
+        res.render("edit-post", {
+          post,
+          loggedIn: true,
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
