@@ -5,7 +5,7 @@ const { Post, User, Comment } = require("../models");
 router.get("/", (req, res) => {
   console.log(req.session);
   Post.findAll({
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: ["id", "title", "post_text", "group_topic", "created_at"],
     include: [
       {
         model: Comment,
@@ -24,6 +24,38 @@ router.get("/", (req, res) => {
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET to render Health posts in the Health Group page
+router.get("/health", (req, res) => {
+  Post.findAll({
+    where: {
+      group_topic: "health",
+    },
+    attributes: ["id", "title", "post_text", "group_topic", "created_at"],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("health-group-page", { posts });
     })
     .catch((err) => {
       console.log(err);

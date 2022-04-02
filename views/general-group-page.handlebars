@@ -1,0 +1,13 @@
+<section>
+  <h2>General Group</h2>
+
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+
+<script src="/javascript/group.js"></script>
