@@ -26,6 +26,10 @@ Post.init(
         len: [1],
       },
     },
+    group_topic: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
