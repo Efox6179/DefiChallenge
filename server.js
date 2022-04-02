@@ -11,12 +11,12 @@ app.set('view engine', 'handlebars');
 
 
 app.get('/', function (req,res){
-  res.render('homepage');
+    res.render('homepage'); 
 });
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')));
-
+//comment
 
 
   app.listen(PORT, () => console.log('Now listening'));
