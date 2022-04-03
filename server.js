@@ -1,3 +1,4 @@
+
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session')
@@ -25,9 +26,4 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use(routes)
-
-
-  app.listen(PORT, () => console.log('Now listening'));
-
+app.listen(PORT, () => console.log('Now listening'));

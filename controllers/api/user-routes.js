@@ -23,7 +23,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "title", "post_text", "created_at"],
+        attributes: ["id", "title", "post_text", "group_topic", "created_at"],
       },
       {
         model: Comment,
@@ -153,4 +153,3 @@ router.delete("/:id", (req, res) => {
 });
 
 module.exports = router;
-
