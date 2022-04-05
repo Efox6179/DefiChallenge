@@ -7,7 +7,7 @@ const commentSeedData = require("./commentSeedData.json");
 const challengeSeedData = require("./challengeSeedData.json");
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
   User.bulkCreate(userSeedData);
   Post.bulkCreate(postSeedData);
