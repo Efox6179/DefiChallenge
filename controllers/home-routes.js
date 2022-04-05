@@ -20,4 +20,14 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/group", (req, res) => {
+  res.render("group-page");
+});
+
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+
+
 module.exports = router;
