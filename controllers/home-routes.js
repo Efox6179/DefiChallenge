@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+
 
 // Clicking the login button will render the login page
 // will need to be replaced once login functionality works
@@ -20,5 +20,15 @@ router.get("/login", (req, res) => {
   }
   res.render("login");
 });
+
+router.get("/group", (req, res) => {
+  res.render("group-page");
+});
+
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+
 
 module.exports = router;

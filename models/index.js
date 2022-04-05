@@ -32,13 +32,13 @@ Post.hasMany(Comment, {
   foreignKey: "post_id",
 });
 
-User.hasMany(Challenge, {
-  foreignKey: "user_id",
-});
+// User.hasMany(Challenge, {
+//   foreignKey: "user_id",
+// });
 
-Challenge.belongsTo(User, {
-  foreignKey: "user_id",
-  onDelete: "SET NULL",
-});
+// Challenge.belongsTo(User, {
+//   foreignKey: "user_id",
+//   onDelete: "SET NULL",
+// });
 
 module.exports = { User, Post, Comment, Challenge };
