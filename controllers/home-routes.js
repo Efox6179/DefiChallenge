@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+
 
 // Clicking the login button will render the login page
 // will need to be replaced once login functionality works
