@@ -1,4 +1,34 @@
 <section>
-  <h2>{{group.name}} Group</h2>
+  <h2>Challenge Group</h2>
+  <p>Post about your challenges and triumphs!</p>
 
+{{#if posts.length}}
+<section>
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+    </li>
+    {{/each}}
+  </ul>
 </section>
+{{/if}}
+
+<section>
+  <h2>Add a New Post</h2>
+
+  <form class="new-post-form">
+    <div>
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    <div>
+      <label for="post-text">Text</label>
+      <textarea type="text" id="post-text" name="post-text"></textarea>
+    </div>
+    <button type="submit" class="btn">Post!</button>
+  </form>
+</section>
+</section>
+
+<script src="/javascript/add-post.js"></script>
