@@ -26,17 +26,17 @@
   <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
     <label
      for="post-title"
-    id="post-title"
      class="form-label inline-block mb-2 text-gray-700"
       >New Post</label
     >
-    <textarea
+    <input name="post-title" type="text" id="post-title" placeholder="Title"/>
+    <textarea name="post-text"
       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded"
       id="post-text"
-      for="post-text"
       rows="3"
       placeholder="Your message"
     ></textarea>
+    <input name="group_topic" type="text" id="group-topic" placeholder="Topic"/>
   <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
   </div>
 
