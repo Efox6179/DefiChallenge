@@ -1,6 +1,5 @@
 const router = require("express").Router();
 
-
 // Clicking the login button will render the login page
 // will need to be replaced once login functionality works
 router.get("/login", (req, res) => {
