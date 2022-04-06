@@ -20,7 +20,7 @@
   <ul class="challenge-list">
     {{#each challenges as |challenge|}}
     <li>
-      {{> challenge-info challenge}}
+      {{> challenges challenge}}
       <a href="/dashboard/challenges/edit/{{challenge.id}}" class="edit-link">Edit challenge</a>
     </li>
     {{/each}}
