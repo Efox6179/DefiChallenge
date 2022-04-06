@@ -17,7 +17,7 @@ const sess = {
 };
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3008;
 
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });
