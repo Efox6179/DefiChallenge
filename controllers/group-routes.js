@@ -3,6 +3,7 @@ const { Post, User, Comment } = require("../models");
 
 // GET all posts to display
 router.get("/", (req, res) => {
+  console.log(req.session);
   Post.findAll({
     attributes: ["id", "title", "post_text", "group_topic", "created_at"],
     include: [

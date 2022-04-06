@@ -1,0 +1,17 @@
+[
+    {
+        "comment_text": "I failed and had to drink a gallon of milk!",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "comment_text": "I ran 10 miles in 30 minutes, and then I ate 3 burgers lol",
+        "user_id": 3,
+        "post_id": 2
+    },
+    {
+        "comment_text": "This is such a great idea! I donated!",
+        "user_id": 1,
+        "post_id": 3
+    }
+]

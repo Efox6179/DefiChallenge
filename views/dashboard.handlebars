@@ -1,5 +1,17 @@
 {{> header}}
 
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
 
 <div class="flex items-center justify-center">
   <div class="datepicker relative form-floating mb-3 xl:w-96">

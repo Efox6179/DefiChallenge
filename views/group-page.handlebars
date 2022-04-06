@@ -1,12 +1,14 @@
 {{> header}}
 
 <section>
-  <h2>Challenge Group</h2>
-  <p>Post about your challenges and triumphs!</p>
+  <h2 class="text-center pt-32 text-3xl">Challenge Group</h2>
+  <p class="text-center text-sm mt-5">Post about your challenges and triumphs!</p>
+
+  
 
 {{#if posts.length}}
 <section>
-  <ul>
+  <ul class="post-list">
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
@@ -17,18 +19,30 @@
 {{/if}}
 
 <section>
-  <h2>Add a New Post</h2>
+  
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-text">Text</label>
-      <textarea type="text" id="post-text" name="post-text"></textarea>
-    </div>
-    <button type="submit" class="btn">Post!</button>
+  <form class="new-post-form ml-32">
+    <div class="flex justify-left m-12">
+  <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
+    <label
+     for="post-title"
+     class="form-label inline-block mb-2 text-gray-700"
+      >New Post</label
+    >
+    <input name="post-title" type="text" id="post-title" placeholder="Title"/>
+    <textarea name="post-text"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded"
+      id="post-text"
+      rows="3"
+      placeholder="Your message"
+    ></textarea>
+    <input name="group_topic" type="text" id="group-topic" placeholder="Topic"/>
+  <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
+  </div>
+
+    
+</div>
+  
   </form>
 </section>
 </section>

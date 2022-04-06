@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Bonless Wings Challenge!",
+        "post_text": "Try and eat 10 SUPER HOT WINGS in less than 10 MINUTES!",
+        "group_topic": "General",
+        "user_id": 1
+    },
+    {
+        "title": "Be Healthy! Run to Your Local Wendy's Today!",
+        "post_text": "Let us know how far and how fast you were able to run!",
+        "group_topic": "Health",
+        "user_id": 2
+    },
+    {
+        "title": "Raising Funds for Education",
+        "post_text": "Let's make a challenge to raise $10,000 for education!!",
+        "group_topic": "Education",
+        "user_id": 3
+    }
+]

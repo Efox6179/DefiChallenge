@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   Challenge.create({
     title: req.body.title,
-    challenge_text: req.body.post_text,
+    challenge_text: req.body.challenge_text,
     due_date: req.body.due_date,
     user_id: req.session.user_id,
   })

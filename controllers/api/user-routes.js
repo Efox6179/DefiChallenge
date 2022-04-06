@@ -83,7 +83,7 @@ router.post("/login", (req, res) => {
     }
 
     // Check to make sure the password given matches the one associated with the username
-    const validPassword = dbUserData.checkPass(req.body.password);
+    const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
