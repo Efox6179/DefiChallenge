@@ -21,11 +21,17 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    
+
+.then(dbPostData => {
+  // serialize data before passing to template
+  const posts = dbPostData.map(post => post.get({ plain: true }));
+  res.render('group-page', { posts, loggedIn: true });
+})
+.catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+});
 });
 
 // GET one post to display with all comments
