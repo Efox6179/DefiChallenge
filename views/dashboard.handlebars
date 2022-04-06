@@ -17,14 +17,14 @@
 {{#if challenges.length }}
 <section>
   <h2>Your Challenges</h2>
-  <ul class="challenge-list">
+  <ol class="challenge-list">
     {{#each challenges as |challenge|}}
     <li>
       {{> challenges challenge}}
       <a href="/dashboard/challenges/edit/{{challenge.id}}" class="edit-link">Edit challenge</a>
     </li>
     {{/each}}
-  </ul>
+  </ol>
 </section>
 {{/if}}
 
@@ -59,12 +59,4 @@
 
 {{> footer}}
 
-<<<<<<< HEAD
-
-
-
-<script src="../public/javascript/dashboard.js"></script>
-<script src="../public/javascript/modal.js"></script>
-=======
 <script src="/javascript/add-challenge.js"></script>
->>>>>>> 7531800f9aecd9edb09f7c729bc36fbf81794b2a
