@@ -30,3 +30,4 @@ function clickOutside(e){
     modal.style.diplay = 'block';
   }
 }
+
