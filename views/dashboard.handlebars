@@ -7,43 +7,64 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
+      <a href="/dashboard/posts/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ul>
 </section>
 {{/if}}
 
-<div class="flex items-center justify-center">
-  <div class="datepicker relative form-floating mb-3 xl:w-96">
-    <input type="text"
-      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-      placeholder="Select a date" />
-    <label for="floatingInput" class="text-gray-700">Select a date</label>
-  </div>
-</div>
-
-
+{{#if challenges.length }}
+<section>
+  <h2>Your Challenges</h2>
+  <ul class="challenge-list">
+    {{#each challenges as |challenge|}}
+    <li>
+      {{> challenges challenge}}
+      <a href="/dashboard/challenges/edit/{{challenge.id}}" class="edit-link">Edit challenge</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
 
 <section>
-  <h2>Create a new challenge</h2>
-
-  <form class="new-post-form">
-    <label>Title Name</label>
-    <div>
-      
-      <textarea placeholder="Challenge name"/></textarea>
+  <form class="new-post-form ml-32">
+    <div class="flex justify-left m-12">
+      <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
+      <label
+        for="challenge-title"
+        class="form-label inline-block mb-2 text-gray-700"
+      >New Challenge</label></br>
+      <input name="challenge-title" type="text" id="challenge-title" class="border border-solid border-gray-300 rounded" placeholder="Title"/>
+      <textarea name="challenge-text"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded"
+      id="challenge-text"
+      rows="3"
+      placeholder="Your challenge"
+      ></textarea>
+      <div class="flex items-center justify-center">
+        <div class="datepicker relative form-floating mb-3 xl:w-96">
+          <input name="due-date" type="date"
+            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="due-date"
+            placeholder="Due date" />
+        </div>
+      </div>
+      <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
     </div>
-<div>
-      <label></label>
-      <textarea placeholder="Enter description here"/></textarea>
-    </div>
-    <button type="submit" class="btn">Post!</button>
-  </form>
+  </div>
+</form>
 </section>
 
+{{> footer}}
 
+<<<<<<< HEAD
 
 
 
 <script src="../public/javascript/dashboard.js"></script>
 <script src="../public/javascript/modal.js"></script>
+=======
+<script src="/javascript/add-challenge.js"></script>
+>>>>>>> 7531800f9aecd9edb09f7c729bc36fbf81794b2a
