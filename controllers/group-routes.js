@@ -22,9 +22,9 @@ router.get("/", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      console.log(dbPostData);
+      // serialize data before passing to template
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("group-page", { posts: posts, loggedIn: true });
+      res.render("group-page", { posts, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
