@@ -7,7 +7,21 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/posts/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+{{#if challenges.length }}
+<section>
+  <h2>Your Challenges</h2>
+  <ul class="challenge-list">
+    {{#each challenges as |challenge|}}
+    <li>
+      {{> challenge-info challenge}}
+      <a href="/dashboard/challenges/edit/{{challenge.id}}" class="edit-link">Edit challenge</a>
     </li>
     {{/each}}
   </ul>
@@ -31,7 +45,7 @@
       ></textarea>
       <div class="flex items-center justify-center">
         <div class="datepicker relative form-floating mb-3 xl:w-96">
-          <input name="due-date" type="text"
+          <input name="due-date" type="date"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             id="due-date"
             placeholder="Due date" />
@@ -43,8 +57,6 @@
 </form>
 </section>
 
+{{> footer}}
 
-
-<script src="/javascript/dashboard.js"></script>
-<script src="/javascript/modal.js"></script>
 <script src="/javascript/add-challenge.js"></script>

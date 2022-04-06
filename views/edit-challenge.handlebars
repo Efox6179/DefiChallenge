@@ -1,0 +1,23 @@
+<article>
+  <h2>
+    Edit Challenge
+  </h2>
+  <form class="edit-challenge-form">
+    <div>
+      <input name="challenge-title" type="text" value="{{challenge.title}}" /></br></br>
+      <textarea name="challenge-text" type="text" value="{{challenge.challenge_text}}">{{challenge.challenge_text}}</textarea></br></br>
+      <p>Current Due Date: {{format_date challenge.due_date}}</p>
+      <label for="challenge-due-date">New Due Date:</label>
+      <input name="challenge-due-date" type="date" value="{{challenge.due_date}}" />
+    </div>
+    <div>
+      By You on {{format_date challenge.created_at}}
+    </div>
+    <button type="submit">Save</button>
+    <button type="button" class="delete-challenge-btn">Delete</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-challenge.js"></script>
+<script src="/javascript/delete-challenge.js"></script>
+
