@@ -22,24 +22,4 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/group", (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("group-page");
-  } else {
-    res.render("login");
-  }
-});
-
-router.get("/dashboard", (req, res) => {
-  if (req.session.loggedIn) {
-    res.render("dashboard");
-  } else {
-    res.render("login");
-  }
-});
-
-
-
-
-
 module.exports = router;

@@ -21,7 +21,11 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPostData) => {
+      console.log(dbPostData);
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("group-page", { posts: posts, loggedIn: true });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
