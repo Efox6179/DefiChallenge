@@ -7,19 +7,14 @@
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ul>
 </section>
 {{/if}}
 
-
-
-
-
 <section>
-  <h2>Create a new challenge</h2>
-
   <form class="new-post-form ml-32">
     <div class="flex justify-left m-12">
       <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
@@ -39,7 +34,7 @@
           <input name="due-date" type="text"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             id="due-date"
-            placeholder="Select a date" />
+            placeholder="Due date" />
         </div>
       </div>
       <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
