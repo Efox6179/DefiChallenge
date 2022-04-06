@@ -23,11 +23,19 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/group", (req, res) => {
-  res.render("group-page");
+  if (req.session.loggedIn) {
+    res.render("group-page");
+  } else {
+    res.render("login");
+  }
 });
 
 router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+  if (req.session.loggedIn) {
+    res.render("dashboard");
+  } else {
+    res.render("login");
+  }
 });
 
 module.exports = router;
