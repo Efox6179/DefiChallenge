@@ -1,3 +1,5 @@
+{{> header}}
+
 {{> post-info post}}
 
 {{#if loggedIn}}
@@ -13,6 +15,8 @@
 {{/if}}
 
 {{> comments post.comments}}
+
+{{> footer}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

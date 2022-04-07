@@ -1,18 +1,6 @@
 {{> header}}
 
-{{#if posts.length}}
-<section>
-  <h2 class="bold text-3xl">Your Posts</h2>
-  <ul class="post-list">
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/posts/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ul>
-</section>
-{{/if}}
+<a href="/dashboard/posts">View My Posts</a>
 
 {{#if challenges.length }}
 <section>
@@ -56,8 +44,6 @@
   </div>
 </form>
 </section>
-
-
 
 {{> footer}}
 

@@ -2,8 +2,28 @@ const router = require("express").Router();
 const { Post, User, Comment, Challenge } = require("../models");
 const withAuth = require("../utils/auth");
 
+// GET all of a user's challenges
+router.get("/", withAuth, (req, res) => {
+  Challenge.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+    attributes: ["id", "title", "challenge_text", "due_date", "created_at"],
+  })
+    .then((dbChallengeData) => {
+      const challenges = dbChallengeData.map((challenge) =>
+        challenge.get({ plain: true })
+      );
+      res.render("dashboard", { challenges, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // GET all of a user's posts
-router.get("/", (req, res) => {
+router.get("/posts", (req, res) => {
   console.log(req);
   Post.findAll({
     where: {
@@ -28,7 +48,7 @@ router.get("/", (req, res) => {
     .then((dbPostData) => {
       console.log(dbPostData);
       const posts = dbPostData.map((post) => post.get({ plain: true }));
-      res.render("dashboard", { posts: posts, loggedIn: true });
+      res.render("posts-dashboard", { posts: posts, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -65,8 +85,6 @@ router.get("/posts/:id", (req, res) => {
 
       // serialize the data
       const post = dbPostData.get({ plain: true });
-
-      // pass data to template
       res.render("single-post", {
         post,
         loggedIn: req.session.loggedIn,
@@ -110,26 +128,6 @@ router.get("/posts/edit/:id", withAuth, (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(500).json(err);
-    });
-});
-
-// GET all of a user's challenges
-router.get("/", withAuth, (req, res) => {
-  Challenge.findAll({
-    where: {
-      user_id: req.session.user_id,
-    },
-    attributes: ["id", "title", "challenge_text", "due_date", "created_at"],
-  })
-    .then((dbChallengeData) => {
-      const challenges = dbChallengeData.map((challenge) =>
-        challenge.get({ plain: true })
-      );
-      res.render("dashboard", { challenges, loggedIn: true });
-    })
-    .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 });

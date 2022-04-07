@@ -10,9 +10,8 @@
     <div>
       <input name="challenge-title" type="text" value="{{challenge.title}}" class="w-full text-xl border border-solid" /></br></br>
       <textarea name="challenge-text" type="text" value="{{challenge.challenge_text}}" class="w-full border border-solid">{{challenge.challenge_text}}</textarea></br></br>
-      <p class="text-sm">Current Due Date: {{format_date challenge.due_date}}</p>
-      <label for="challenge-due-date " class="text-sm">New Due Date:</label>
-      <input name="challenge-due-date" type="date" value="{{challenge.due_date}}" />
+      <label for="challenge-due-date " class="text-sm">Due Date:</label>
+      <input name="challenge-due-date" id="date" type="date" value="{{format_challenge_date challenge.due_date}}" />
     </div>
     <div class="text-sm">
       By You on {{format_date challenge.created_at}}
@@ -24,7 +23,7 @@
 </article>
 </div>
 
+{{> footer}}
+
 <script src="/javascript/edit-challenge.js"></script>
 <script src="/javascript/delete-challenge.js"></script>
-
-{{> footer}}
