@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 // GET all posts to display
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
     attributes: ["id", "title", "post_text", "group_topic", "created_at"],
@@ -33,7 +34,7 @@ router.get("/", (req, res) => {
 });
 
 // GET one post to display with all comments
-router.get("/posts/:id", (req, res) => {
+router.get("/posts/:id", withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id,
