@@ -1,19 +1,10 @@
-
-
-<button id="modal-btn" class="button">Click Here</button>
-
-  <div id="my-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Challenges</h2>
-      </div>
-      <div class="modal-body">
-        <p>testing</p>
-      </div>
-    </div> 
-  </div>
-
-    <script src="/javascript/modal.js"></script>
-
-     
+<article class="challenge">
+    <div>
+        <div>
+            <h3>{{title}}</h3>
+            <span>Created by {{user.username}} on {{format_date created_at}}</span>
+        </div>
+        <p>{{challenge_text}}</p>
+        <p>{{format_challenge_date2 due_date}}</p>
+    </div>
+</article>

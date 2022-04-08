@@ -1,0 +1,19 @@
+{{> header}}
+
+<a href="/dashboard">View My Challenges</a>
+
+{{#if posts.length}}
+<section>
+  <h2 class="bold text-3xl">Your Posts</h2>
+  <ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/posts/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+{{> footer}}
