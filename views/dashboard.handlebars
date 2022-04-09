@@ -1,0 +1,54 @@
+{{> header}}
+
+<a href="/dashboard/posts" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3  max-w-fit ">View My Posts</a>
+<div class="flex justify-evenly">
+{{#if challenges.length }}
+<section class="w-96">
+  <h2 class="bold text-3xl">Your Challenges</h2>
+  <div>
+  <ol class="challenge-list">
+    {{#each challenges as |challenge|}}
+    <li>
+      {{> challenges challenge}}
+      <a href="/dashboard/challenges/edit/{{challenge.id}}"  class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3  max-w-fit ">Edit challenge</a> </br> </br>
+    </li>
+    {{/each}}
+  </ol>
+  </div>
+</section>
+{{/if}}
+
+
+<section>
+  <form class="new-post-form ml-32">
+    <div class="flex justify-center m-12">
+      <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
+      <label
+        for="challenge-title"
+        class="form-label inline-block mb-2 text-gray-700"
+      >New Challenge</label></br>
+      <input name="challenge-title" type="text" id="challenge-title" class="border border-solid border-gray-300 rounded px-3 py-1.5" placeholder="Title"/>
+      <textarea name="challenge-text"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded"
+      id="challenge-text"
+      rows="3"
+      placeholder="Your challenge"
+      ></textarea>
+      <div class="flex items-center justify-center">
+        <div class="datepicker relative form-floating mb-3 xl:w-96">
+          <input name="due-date" type="date"
+            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="due-date"
+            placeholder="Due date" />
+        </div>
+      </div>
+      <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
+    </div>
+  </div>
+</form>
+</section>
+</div>
+
+{{> footer}}
+
+<script src="/javascript/add-challenge.js"></script>
