@@ -24,10 +24,10 @@ We wanted to create an application that would allow you to track goals for yours
 
 ## Contribution:
 
-Shannon Stover | sstover25
-Quntarious Brown| Quntarious 
-Ethan Fox | Efox6179
-Mickie Burch | MickieBurch 
+- Shannon Stover | sstover25 
+- Quntarious Brown| Quntarious 
+- Ethan Fox | Efox6179
+- Mickie Burch | MickieBurch 
 
 ## Questions
 Feel free to reach out to any of the github usernames listed above if you have any questions about this project. 
