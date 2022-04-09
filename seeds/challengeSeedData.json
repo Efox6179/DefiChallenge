@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Bonless Wings Challenge",
+        "challenge_text": "Eat 10 super hot wings (bone-in or boneless) in less than 10 minutes",
+        "due_date": "4/16/2022",
+        "user_id": 1
+    },
+    {
+        "title": "Run to Your Local Wendy's",
+        "challenge_text": "Run to the nearest Wendy's and post what your distance and times were",
+        "due_date": "4/16/2022",
+        "user_id": 2
+    },
+    {
+        "title": "Education Fund Raising",
+        "challenge_text": "Raise $10,000 for education",
+        "due_date": "4/16/2022",
+        "user_id": 3
+    }
+]
