@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 // GET all posts to display
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   Post.findAll({
     attributes: ["id", "title", "post_text", "group_topic", "created_at"],
@@ -21,7 +22,11 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPostData) => {
+      // serialize data before passing to template
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("group-page", { posts, loggedIn: true });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -29,7 +34,7 @@ router.get("/", (req, res) => {
 });
 
 // GET one post to display with all comments
-router.get("/post/:id", (req, res) => {
+router.get("/posts/:id", withAuth, (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id,

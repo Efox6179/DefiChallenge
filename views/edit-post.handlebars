@@ -1,22 +1,29 @@
-<article>
-  <h2>
+{{> header}}
+
+<div class="flex justify-center mt-60">
+<article class="">
+ <div class="bg-white rounded shadow-2xl p-12  "> 
+   <h2 class=" font-bold text-3xl mb-3">
     Edit Post
   </h2>
-  <form class="edit-post-form">
+  <form class="edit-post-form ">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" /></br></br>
-      <textarea name="post-text" type="text" value="{{post.post_text}}">{{post.post_text}}</textarea>
+      <textarea name="post-title" type="text" value="{{post.title}}" class="w-full text-xl border border-solid " >{{post.title}}</textarea></br></br>
+      <textarea name="post-text" type="text" value="{{post.post_text}}" class="w-full border border-solid">{{post.post_text}}</textarea>
     </div>
-    <div>
+    <div class="text-sm">
       By You on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save</button>
-    <button type="button" class="delete-post-btn">Delete</button>
+    <button type="submit" class=" bg-green-500 hover:bg-green-700 rounded p-2 mt-3">Save</button>
+    <button type="button" class="delete-post-btn  bg-red-500 hover:bg-red-600 rounded p-2 ">Delete</button>
   </form>
+  </div>
 </article>
+</div>
+
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
 
+{{> footer}}

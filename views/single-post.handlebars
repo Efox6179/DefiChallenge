@@ -1,0 +1,33 @@
+{{> header}}
+<div class="flex justify-center">
+{{> post-info post}}
+
+{{#if loggedIn}}
+</div>
+<div class="flex justify-center">
+<form class="comment-form">  </br> </br>
+  <div>
+    <textarea name="comment-body" class=" bg-white rounded shadow-2xl h-32 w-96 border-2 inline-block text-lg " placeholder="Insert text here"></textarea>
+  </div>
+</div>
+<div class="flex justify-center">
+  <div>
+    <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Add Comment</button>
+  </div>
+  </div>
+</form>
+</br> </br>
+
+<div class="ml-52">
+<h2 class="bold text-3xl">Comments</h2> 
+{{/if}}
+
+{{> comments post.comments}}
+
+</div>
+{{> footer}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
+

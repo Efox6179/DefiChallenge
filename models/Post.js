@@ -21,7 +21,7 @@ Post.init(
       },
     },
     post_text: {
-      type: DataTypes.STRING(500),
+      type: DataTypes.STRING(1000),
       allowNull: false,
       validate: {
         len: [1],
@@ -30,6 +30,9 @@ Post.init(
     group_topic: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1],
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

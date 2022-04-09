@@ -5,7 +5,7 @@
   <p class="text-center text-sm mt-5">Post about your challenges and triumphs!</p>
 
   
-
+<div class="flex justify-evenly">
 {{#if posts.length}}
 <section>
   <ul class="post-list">
@@ -15,27 +15,30 @@
     </li>
     {{/each}}
   </ul>
-</section>
-{{/if}}
+  
+</section> 
+{{/if}} 
+
 
 <section>
+
   
 
   <form class="new-post-form ml-32">
-    <div class="flex justify-left m-12">
+    <div class="m-12">
   <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
     <label
      for="post-title"
      class="form-label inline-block mb-2 text-gray-700"
       >New Post</label></br>
-    <input name="post-title" type="text" id="post-title" class="border border-solid border-gray-300 rounded" placeholder="Title"/>
+    <input name="post-title" type="text" id="post-title" class="border border-solid border-gray-300 rounded px-3 py-1.5 " placeholder="Title"/>
     <textarea name="post-text"
       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded"
       id="post-text"
       rows="3"
       placeholder="Your message"
     ></textarea>
-    <input name="group_topic" type="text" id="group-topic" class="border border-solid border-gray-300 rounded" placeholder="Topic"/>
+    <input name="group_topic" type="text" id="group-topic" class="border border-solid border-gray-300 rounded px-3 py-1.5" placeholder="Topic"/>
   <button type="submit" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ">Post!</button>
   </div>
 
@@ -44,9 +47,9 @@
   
   </form>
 </section>
+</div>
 </section>
 
-<script src="/DefiChallenge/public/javascript/comment.js"></script>
 <script src="/javascript/add-post.js"></script>
 
 {{> footer}}
