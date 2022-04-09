@@ -5,9 +5,9 @@
   <p class="text-center text-sm mt-5">Post about your challenges and triumphs!</p>
 
   
-<div class="flex justify-evenly">
+<div class="flex flex-wrap justify-evenly">
 {{#if posts.length}}
-<section>
+<section class="mt-10">
   <ul class="post-list">
     {{#each posts as |post|}}
     <li>
@@ -24,7 +24,7 @@
 
   
 
-  <form class="new-post-form ml-32">
+  <form class="new-post-form lg:ml-32">
     <div class="m-12">
   <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
     <label

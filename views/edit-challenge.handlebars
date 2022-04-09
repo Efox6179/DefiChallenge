@@ -1,5 +1,6 @@
 {{> header}}
-<div class="flex justify-center mt-60">
+
+<div class="flex justify-center mt-32">
 <article>
   <div class="bg-white rounded shadow-2xl p-12">
 
@@ -8,8 +9,10 @@
   </h2>
   <form class="edit-challenge-form">
     <div>
-      <input name="challenge-title" type="text" value="{{challenge.title}}" class="w-full text-xl border border-solid" /></br></br>
-      <textarea name="challenge-text" type="text" value="{{challenge.challenge_text}}" class="w-full border border-solid">{{challenge.challenge_text}}</textarea></br></br>
+      <label for="challenge-title">Title</label>
+      <input name="challenge-title" type="text" value="{{challenge.title}}" class="w-full text-xl border border-solid px-3 py-1.5" /></br></br>
+      <label for="challenge-text">Challenge Text</label>
+      <textarea name="challenge-text" type="text" value="{{challenge.challenge_text}}" class="w-full border border-solid px-3 py-1.5">{{challenge.challenge_text}}</textarea></br>
       <label for="challenge-due-date " class="text-sm">Due Date:</label>
       <input name="challenge-due-date" id="date" type="date" value="{{format_challenge_date challenge.due_date}}" />
     </div>

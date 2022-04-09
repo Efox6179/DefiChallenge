@@ -2,6 +2,10 @@ const router = require("express").Router();
 
 // This will render the homepage when the site is visited
 router.get("/", function (req, res) {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
   res.render("homepage");
 });
 
