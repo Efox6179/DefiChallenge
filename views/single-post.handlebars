@@ -1,5 +1,5 @@
 {{> header}}
-<div class="flex justify-center">
+<div class="flex justify-center mt-20 lg:mt-0">
 {{> post-info post}}
 
 {{#if loggedIn}}
@@ -7,7 +7,7 @@
 <div class="flex justify-center">
 <form class="comment-form">  </br> </br>
   <div>
-    <textarea name="comment-body" class=" bg-white rounded shadow-2xl h-32 w-96 border-2 inline-block text-lg " placeholder="Insert text here"></textarea>
+    <textarea name="comment-body" class=" bg-white rounded shadow-2xl h-32 w-96 border-2 inline-block text-lg px-3 py-1.5" placeholder="Insert text here"></textarea>
   </div>
 </div>
 <div class="flex justify-center">
@@ -18,13 +18,15 @@
 </form>
 </br> </br>
 
-<div class="ml-52">
-<h2 class="bold text-3xl">Comments</h2> 
-{{/if}}
+<div class="md:ml-52 md:mr-52">
+<h2 class="bold text-3xl ml-5">Comments</h2> </br>
 
 {{> comments post.comments}}
 
 </div>
+
+{{/if}}
+
 {{> footer}}
 
 {{#if loggedIn}}

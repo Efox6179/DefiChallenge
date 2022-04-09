@@ -1,10 +1,10 @@
 {{> header}}
 
-<a href="/dashboard/posts" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3  max-w-fit ">View My Posts</a>
-<div class="flex justify-evenly">
+<a href="/dashboard/posts" class="btn bg-sky-500 block hover:bg-sky-800 rounded py-2 px-2 mt-3 ml-3 max-w-fit ">View My Posts</a>
+<div class="flex flex-wrap justify-evenly">
 {{#if challenges.length }}
-<section class="w-96">
-  <h2 class="bold text-3xl">Your Challenges</h2>
+<section class="lg:w-96">
+  <h2 class="bold text-3xl mt-10">Your Challenges</h2></br>
   <div>
   <ol class="challenge-list">
     {{#each challenges as |challenge|}}
@@ -20,7 +20,7 @@
 
 
 <section>
-  <form class="new-post-form ml-32">
+  <form class="new-post-form ml-5 lg:ml-32">
     <div class="flex justify-center m-12">
       <div class="mb-3 xl:w-96 bg-white rounded shadow-2xl p-7">
       <label

@@ -6,6 +6,9 @@ async function editFormHandler(event) {
   const post_text = document
     .querySelector('textarea[name="post-text"]')
     .value.trim();
+  const group_topic = document
+    .querySelector('textarea[name="post-topic"]')
+    .value.trim();
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
@@ -14,6 +17,7 @@ async function editFormHandler(event) {
     body: JSON.stringify({
       title,
       post_text,
+      group_topic,
     }),
     headers: {
       "Content-Type": "application/json",

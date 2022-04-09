@@ -29,7 +29,7 @@ router.get("/posts", withAuth, (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: ["id", "title", "post_text", "group_topic", "created_at"],
     include: [
       {
         model: Comment,
@@ -59,7 +59,7 @@ router.get("/posts", withAuth, (req, res) => {
 // GET to allow the user to edit their existing posts
 router.get("/posts/edit/:id", withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: ["id", "title", "post_text", "group_topic", "created_at"],
     include: [
       {
         model: Comment,
